@@ -1,0 +1,19 @@
+---
+- block:
+  - name: Create/assign database user to db and grant permissions
+    postgresql_user:
+      name: "{{ site_env.db_user }}"
+      password: "{{ site_env.db_password }}"
+      state: present
+    with_dict: "{{ rails_apps }}"
+
+  - name: Create databases for apps
+    postgresql_db:
+      name: "{{ site_env.db_name }}"
+      state: present
+      owner: "{{ site_env.db_user }}"
+    with_dict: "{{ rails_apps }}"
+
+  when: site_uses_local_db and item.value.db_create | default(true)
+  become: true
+  become_user: postgres

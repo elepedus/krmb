@@ -1,0 +1,8 @@
+db_admin: root
+db_pass: "{{ vault_db_root_password }}"
+db_root_password: "{{ vault_db_root_password }}" # Define this variable in group_vars/staging/vault.yml
+new_db_name: krmb_staging
+new_db_user: krmb
+new_db_pass: "{{ vault_rails_apps.krmb.env.db_password }}"
+new_db_priv:
+  schema: ['ALL']

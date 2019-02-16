@@ -1,0 +1,110 @@
+---
+- name: Install Build Dependencies
+  apt: name={{ item }} state=present
+  with_items:
+    - libreadline-dev
+    - libssl-dev
+    - zlib1g-dev
+    - git
+  become: yes
+
+- name: Create Rbenv Directory
+  file:
+    path: "{{ rbenv_root }}"
+    state: directory
+    owner: "{{ web_user}}"
+    group: "{{ web_group}}"
+    mode: 02775
+  become: yes
+  become_user: "{{web_user}}"
+  become_method: su
+#
+#- name: Allow Web users to Write Rbenv Root
+#  acl:
+#    name: "{{ rbenv_root }}"
+#    etype: group
+#    entity: "{{ web_group}}"
+#    permissions: rwx
+#    state: present
+#  become: yes
+#  become_user: "{{web_user}}"
+#
+#- name: Allow Web users Write to Future Directories
+#  acl:
+#    name: "{{ rbenv_root }}"
+#    etype: group
+#    entity: "{{web_group}}"
+#    permissions: rwx
+#    default: yes
+#    state: present
+#  become: yes
+#  become_user: "{{web_user}}"
+#
+#- name: Set ACL Mask for Future Directories
+#  acl:
+#    name: "{{ rbenv_root }}"
+#    etype: mask
+#    permissions: rwx
+#    default: yes
+#    state: present
+#  become: yes
+#  become_user: "{{web_user}}"
+
+- name: Install Rbenv
+  git:
+    repo: https://github.com/rbenv/rbenv.git
+    dest: "{{ rbenv_root }}"
+    version: "{{ rbenv_version }}"
+  become: yes
+  become_user: "{{web_user}}"
+  become_method: su
+
+- name: Install Rbenv Plugins
+  git:
+    repo: https://github.com/rbenv/{{ item.name }}.git
+    dest: "{{ rbenv_root }}/plugins/{{ item.name }}/"
+    version: "{{ item.version }}"
+  with_items:
+    - { name: ruby-build,         version: "{{ ruby_build_version }}" }
+    - { name: rbenv-vars,         version: "{{ rbenv_vars_version }}" }
+    - { name: rbenv-default-gems, version: "{{ default_gems_version }}" }
+  become: yes
+  become_user: "{{web_user}}"
+  become_method: su
+
+- name: Install Binstubs
+  git:
+    repo: https://github.com/ianheggie/rbenv-binstubs.git
+    dest: "{{ rbenv_root }}/plugins/rbenv-binstubs/"
+    version: "{{ binstubs_version }}"
+  become: yes
+  become_user: "{{web_user}}"
+  become_method: su
+
+- name: Set Default Gems
+  copy: src=default-gems dest={{ rbenv_root }}/default-gems
+  become: yes
+  become_user: "{{web_user}}"
+  become_method: su
+
+- name: Add Rbenv to Profile
+  template: src=rbenv.sh.j2 dest=/etc/profile.d/rbenv.sh mode=755
+
+- name: Add Rbenv to bashrc
+  template: src=rbenv.sh.j2 dest=/etc/bash.bashrc mode=755
+
+- name: Install
+  shell: . /etc/profile.d/rbenv.sh && rbenv install {{ ruby_version }}
+  args:
+    creates: "{{ rbenv_root }}/versions/{{ ruby_version }}"
+  become: yes
+  become_user: "{{web_user}}"
+  become_method: su
+
+- name: Copy Nginx Config
+  template: src=nginx.conf.j2 dest=/etc/nginx/conf.d/ruby.conf
+  become: yes
+  notify:
+    - Restart Passenger App
+    - Reload Nginx
+  when: "{{ copy_nginx_ruby_conf | default('true') }}"

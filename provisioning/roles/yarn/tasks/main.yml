@@ -1,0 +1,17 @@
+---
+- block:
+    - name: Add Yarn repo key
+      apt_key:
+        url: "{{ yarn_key_url }}"
+        state: present
+      become: yes
+
+    - name: Add Yarn repo
+      apt_repository:
+        repo: "{{ yarn_repo }}"
+        update_cache: yes
+
+- name: Install Yarn
+  apt:
+    name: yarn
+    state: present

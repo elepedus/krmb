@@ -1,0 +1,12 @@
+---
+- name: Ensure necessary variables are defined
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Ensure environment is defined
+      fail:
+        msg: |
+          Environment missing. Use `-e` to define `env`:
+          ansible-playbook {{ playbook }} -e env=<environment>
+      when: env is not defined
+      tags: [variable-check]

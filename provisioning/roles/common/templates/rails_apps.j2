@@ -1,0 +1,8 @@
+Invalid rails sites configuration: site names in `rails_apps` must have matching entry in `vault_rails_apps`.
+
+Sites without a matching vault entry:
+{% for name in rails_apps.keys() | difference(vault_rails_apps.keys()) %}
+* `{{ name }}`
+{% endfor %}
+
+Update `group_vars/{{ env }}/vault.yml` to continue.

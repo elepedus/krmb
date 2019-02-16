@@ -1,0 +1,43 @@
+---
+- import_playbook: variable-check.yml
+  vars:
+    playbook: server.yml
+
+- name: Test Connection and Determine Remote User
+  hosts: web:&{{ env }}
+  gather_facts: false
+  roles:
+    - { role: connection, tags: [connection, always] }
+
+- name: Install prerequisites
+  hosts: web:&{{ env }}
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: Install Python 2.x
+      raw: which python || sudo apt-get update && sudo apt-get install -qq -y python-simplejson
+      register: python_check
+      changed_when: python_check.stdout is not search('/usr/bin/python')
+
+- name: Rails Server - Install Ruby, PostgreSQL, Nginx and Passenger on Ubuntu
+  hosts: web:&{{ env }}
+  become: yes
+  roles:
+    - { role: common, tags: [common] }
+    - { role: swapfile, swapfile_size: 1GB, swapfile_file: /swapfile, tags: [swapfile] }
+    - { role: fail2ban, tags: [fail2ban] }
+    - { role: ferm, tags: [ferm] }
+    - { role: ntp, tags: [ntp] }
+    - { role: users, tags: [users] }
+    - { role: sshd, tags: [sshd] }
+    - { role: bbatsche-postgresql, install_postgres: yes, tags: [postgresql]}
+    - { role: ssmtp, tags: [ssmtp, mail] }
+    - { role: memcached, tags: [memcached] }
+    - { role: nginx, tags: [nginx] }
+    - { role: passenger, tags: [passenger]}
+    - { role: ruby, tags: [ruby]}
+    - { role: logrotate, tags: [logrotate] }
+    - { role: letsencrypt, tags: [letsencrypt], when: sites_using_letsencrypt | count }
+    - { role: app-setup, tags: [app-setup] }
+    - { role: geerlingguy-nodejs, tags: [nodejs] }
+    - { role: yarn, tags: [yarn] }

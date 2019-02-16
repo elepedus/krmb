@@ -1,0 +1,14 @@
+rails_env_defaults:
+  db_host: localhost
+  db_name: "{{ item.key | underscore }}_{{ env }}"
+  db_user: "{{ item.key | underscore }}"
+  db_user_host: localhost
+  rails_env: "{{ env }}"
+
+site_env: "{{ rails_env_defaults | combine(item.value.env | default({}), vault_rails_apps[item.key].env) }}"
+site_hosts_canonical: "{{ item.value.site_hosts | map(attribute='canonical') | list }}"
+site_hosts_redirects: "{{ item.value.site_hosts | selectattr('redirects', 'defined') | sum(attribute='redirects', start=[]) | list }}"
+site_hosts: "{{ site_hosts_canonical | union(site_hosts_redirects) }}"
+ssl_enabled: "{{ item.value.ssl is defined and item.value.ssl.enabled | default(false) }}"
+ssl_stapling_enabled: "{{ item.value.ssl is defined and item.value.ssl.stapling_enabled | default(true) }}"
+sites_use_ssl: "{{ rails_apps.values() | map(attribute='ssl') | selectattr('enabled') | list | count > 0 }}"

@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Krmb</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Krmb</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script>
-        Userback = window.Userback || {};
-        Userback.access_token = '4884|6714|306c0A5bzcFWMlPtkUR2663TplqOVhlipDwvTtw3ezqrmhOMmc';
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script>
+      Userback = window.Userback || {};
+      Userback.access_token = '4884|6714|306c0A5bzcFWMlPtkUR2663TplqOVhlipDwvTtw3ezqrmhOMmc';
 
-        (function(id) {
-            if (document.getElementById(id)) {return;}
-            var s = document.createElement('script');
-            s.id = id;
-            s.async = 1;
-            s.src = 'https://static.userback.io/widget/v1.js';
-            var parent_node = document.head || document.body;
-            parent_node.appendChild(s);
-        })('userback-sdk');
-    </script>
-  </head>
+      (function (id) {
+          if (document.getElementById(id)) {
+              return;
+          }
+          var s = document.createElement('script');
+          s.id = id;
+          s.async = 1;
+          s.src = 'https://static.userback.io/widget/v1.js';
+          var parent_node = document.head || document.body;
+          parent_node.appendChild(s);
+      })('userback-sdk');
+  </script>
+</head>
 
-  <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
+<body>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+<% else %>
+  <%= link_to('Login', new_user_session_path) %>
+  <%= link_to('Register', new_user_registration_path) %>
+<% end %>
+<br/>
+<%= yield %>
+</body>
 </html>

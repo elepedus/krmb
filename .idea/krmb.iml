@@ -50,9 +50,6 @@
     <orderEntry type="library" scope="PROVIDED" name="capistrano-passenger (v0.2.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-rails (v1.4.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-rbenv (v2.1.4, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="capybara (v3.13.2, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="childprocess (v0.9.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="chromedriver-helper (v2.1.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.4, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.4, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="database_cleaner (v1.7.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
@@ -68,7 +65,6 @@
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.10.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.2, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.5.3, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="io-like (v0.3.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.8.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v2.1.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json-schema (v2.8.1, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />

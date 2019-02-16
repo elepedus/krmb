@@ -78,8 +78,16 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
+staging:
+  <<: *default
+  database: <%= Rails.application.credentials.dig(:staging, :db, :name) %>
+  username: <%= Rails.application.credentials.dig(:staging, :db, :username) %>
+  password: <%= Rails.application.credentials.dig(:staging, :db, :password) %>
+
 production:
   <<: *default
-  database: krmb_production
-  username: krmb
-  password: <%= ENV['KRMB_DATABASE_PASSWORD'] %>
+  database: <%= Rails.application.credentials.dig(:production, :db, :name) %>
+  username: <%= Rails.application.credentials.dig(:production, :db, :username) %>
+  password: <%= Rails.application.credentials.dig(:production, :db, :password) %>
+

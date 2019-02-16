@@ -289,6 +289,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+  bundler (~> 1.17)
   capistrano
   capistrano-passenger
   capistrano-rails

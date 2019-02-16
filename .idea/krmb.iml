@@ -44,7 +44,6 @@
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.4.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.17.2, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="byebug (v11.0.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano (v3.11.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-bundler (v1.5.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-passenger (v0.2.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
@@ -56,6 +55,8 @@
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.4, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.4, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="database_cleaner (v1.7.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="debase (v0.2.2, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="debase-ruby_core_source (v0.10.4, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.3, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="docile (v1.3.1, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.8.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
@@ -104,6 +105,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rspec-rails (v3.8.2, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-support (v3.8.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rswag-specs (v2.0.5, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-debug-ide (v0.6.1, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby_dep (v1.5.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v1.2.2, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.7.3, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />

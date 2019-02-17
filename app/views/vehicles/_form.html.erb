@@ -1,0 +1,110 @@
+<%= form_with(model: vehicle, local: true) do |form| %>
+  <% if vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+
+      <ul>
+        <% vehicle.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :registration %>
+    <%= form.text_field :registration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :make %>
+    <%= form.text_field :make %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trim %>
+    <%= form.text_field :trim %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.number_field :year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :documents %>
+    <%= form.text_field :documents %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mileage %>
+    <%= form.number_field :mileage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mot_expires %>
+    <%= form.date_select :mot_expires %>
+  </div>
+
+  <div class="field">
+    <%= form.label :insurance_expires %>
+    <%= form.date_select :insurance_expires %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :images %>
+    <%= form.text_field :images %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fuel_type %>
+    <%= form.select(:fuel_type, Vehicle.fuel_types) %>
+  </div>
+  <div class="field">
+    <%= form.label :body_type %>
+    <%= form.select(:body_type, Vehicle.body_types ) %>
+  </div>
+  <div class="field">
+    <%= form.label :gearbox %>
+    <%= form.select(:gearbox, Vehicle.gearboxes ) %>
+  </div>
+  <div class="field">
+    <%= form.label :doors %>
+    <%= form.number_field :doors %>
+  </div>
+  <div class="field">
+    <%= form.label :colour %>
+    <%= form.text_field :colour %>
+  </div>
+  <div class="field">
+    <%= form.label :fuel_consumption %>
+    <%= form.number_field :fuel_consumption %>
+  </div>
+  <div class="field">
+    <%= form.label :engine_size %>
+    <%= form.number_field :engine_size %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

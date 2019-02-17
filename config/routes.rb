@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :vehicles
   devise_for :users
   get "/pages/*page", to: 'pages#show'
   root to: "pages#index"

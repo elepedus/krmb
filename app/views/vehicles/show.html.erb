@@ -1,0 +1,97 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vehicle.name %>
+</p>
+
+<p>
+  <strong>Registration:</strong>
+  <%= @vehicle.registration %>
+</p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @vehicle.make %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @vehicle.model %>
+</p>
+
+<p>
+  <strong>Trim:</strong>
+  <%= @vehicle.trim %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @vehicle.year %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @vehicle.notes %>
+</p>
+
+<p>
+  <strong>Documents:</strong>
+  <%= @vehicle.documents %>
+</p>
+
+<p>
+  <strong>Mileage:</strong>
+  <%= @vehicle.mileage %>
+</p>
+
+<p>
+  <strong>Mot expires:</strong>
+  <%= @vehicle.mot_expires %>
+</p>
+
+<p>
+  <strong>Insurance expires:</strong>
+  <%= @vehicle.insurance_expires %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @vehicle.user_id %>
+</p>
+
+<p>
+  <strong>Images:</strong>
+  <%= @vehicle.images %>
+</p>
+<p>
+  <strong>Fuel Type:</strong>
+  <%= @vehicle.fuel_type %>
+</p>
+<p>
+  <strong>Body Type:</strong>
+  <%= @vehicle.body_type %>
+</p>
+<p>
+  <strong>Gearbox:</strong>
+  <%= @vehicle.gearbox %>
+</p>
+<p>
+  <strong>Doors:</strong>
+  <%= @vehicle.doors %>
+</p>
+<p>
+  <strong>Colour:</strong>
+  <%= @vehicle.colour %>
+</p>
+<p>
+  <strong>Fuel Consumption:</strong>
+  <%= @vehicle.fuel_consumption %>
+</p>
+<p>
+  <strong>Engine Size:</strong>
+  <%= @vehicle.engine_size %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>

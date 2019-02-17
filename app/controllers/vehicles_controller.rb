@@ -78,19 +78,19 @@ class VehiclesController < ApplicationController
         :trim,
         :year,
         :notes,
-        :documents,
         :mileage,
         :mot_expires,
         :insurance_expires,
         :user_id,
-        :images,
         :fuel_type,
         :body_type,
         :gearbox,
         :doors,
         :colour,
         :fuel_consumption,
-        :engine_size
+        :engine_size,
+        documents: [],
+        images: []
     )
   end
 end

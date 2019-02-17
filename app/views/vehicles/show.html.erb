@@ -37,7 +37,9 @@
 
 <p>
   <strong>Documents:</strong>
-  <%= @vehicle.documents %>
+  <% @vehicle.documents.each do |d| %>
+    <%= link_to('file' ,url_for(d)) %>
+  <% end %>
 </p>
 
 <p>
@@ -62,7 +64,10 @@
 
 <p>
   <strong>Images:</strong>
-  <%= @vehicle.images %>
+  <% @vehicle.images.each do |i| %>
+    <%= image_tag (i) %>
+  <% end %>
+  %>
 </p>
 <p>
   <strong>Fuel Type:</strong>

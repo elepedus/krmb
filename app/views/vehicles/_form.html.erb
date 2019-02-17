@@ -48,7 +48,7 @@
 
   <div class="field">
     <%= form.label :documents %>
-    <%= form.text_field :documents %>
+    <%= form.file_field :documents, multiple: true, direct_upload: true %>
   </div>
 
   <div class="field">
@@ -73,7 +73,7 @@
 
   <div class="field">
     <%= form.label :images %>
-    <%= form.text_field :images %>
+    <%= form.file_field :images, multiple: true, direct_upload: true %>
   </div>
 
   <div class="field">
@@ -82,11 +82,11 @@
   </div>
   <div class="field">
     <%= form.label :body_type %>
-    <%= form.select(:body_type, Vehicle.body_types ) %>
+    <%= form.select(:body_type, Vehicle.body_types) %>
   </div>
   <div class="field">
     <%= form.label :gearbox %>
-    <%= form.select(:gearbox, Vehicle.gearboxes ) %>
+    <%= form.select(:gearbox, Vehicle.gearboxes) %>
   </div>
   <div class="field">
     <%= form.label :doors %>

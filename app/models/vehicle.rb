@@ -1,5 +1,7 @@
 class Vehicle < ApplicationRecord
   belongs_to :user
+  has_many_attached :images
+  has_many_attached :documents
   enum fuel_types: {
     petrol: 'petrol',
     diesel: 'diesel',

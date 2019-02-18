@@ -1,64 +1,19 @@
-<h1>Vehicles</h1>
+<div class="d-flex justify-content-between align-items-center">
+  <h1 class="">Vehicles</h1>
+  <%= link_to 'New Vehicle', new_vehicle_path, class: 'btn btn-outline-primary' %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Registration</th>
-      <th>Make</th>
-      <th>Model</th>
-      <th>Trim</th>
-      <th>Year</th>
-      <th>Notes</th>
-      <th>Documents</th>
-      <th>Mileage</th>
-      <th>Mot expires</th>
-      <th>Insurance expires</th>
-      <th>User</th>
-      <th>Images</th>
-      <th>Fuel Type</th>
-      <th>Body Type</th>
-      <th>Gearbox</th>
-      <th>Colour</th>
-      <th>Doors</th>
-      <th>Fuel Consumption</th>
-      <th>Engine Size</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="card-columns">
+  <% @vehicles.each do |vehicle| %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= "#{vehicle.registration}" %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= "#{vehicle.make} #{vehicle.model}" %></h6>
+        <%= link_to 'Show', vehicle, class: 'card-link' %>
+        <%= link_to 'Edit', edit_vehicle_path(vehicle), class: 'card-link' %>
+        <%= link_to 'Destroy', vehicle, method: :delete, data: {confirm: 'Are you sure?'}, class: 'card-link' %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @vehicles.each do |vehicle| %>
-      <tr>
-        <td><%= vehicle.name %></td>
-        <td><%= vehicle.registration %></td>
-        <td><%= vehicle.make %></td>
-        <td><%= vehicle.model %></td>
-        <td><%= vehicle.trim %></td>
-        <td><%= vehicle.year %></td>
-        <td><%= vehicle.notes %></td>
-        <td><%= vehicle.documents %></td>
-        <td><%= vehicle.mileage %></td>
-        <td><%= vehicle.mot_expires %></td>
-        <td><%= vehicle.insurance_expires %></td>
-        <td><%= vehicle.user_id %></td>
-        <td><%= vehicle.images %></td>
-        <td><%= vehicle.fuel_type %></td>
-        <td><%= vehicle.body_type %></td>
-        <td><%= vehicle.gearbox %></td>
-        <td><%= vehicle.colour %></td>
-        <td><%= vehicle.doors %></td>
-        <td><%= vehicle.fuel_consumption %></td>
-        <td><%= vehicle.engine_size %></td>
-        <td colspan="3"></td>
-        <td><%= link_to 'Show', vehicle %></td>
-        <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-        <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Vehicle', new_vehicle_path %>

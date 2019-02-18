@@ -2,6 +2,7 @@ class Vehicle < ApplicationRecord
   belongs_to :user
   has_many_attached :images
   has_many_attached :documents
+  has_rich_text :notes
   enum fuel_types: {
     petrol: 'petrol',
     diesel: 'diesel',

@@ -77,9 +77,8 @@
     <p>
       <strong>Images:</strong>
       <% @vehicle.images.each do |i| %>
-        <%= image_tag (i), class: 'img-thumbnail' %>
+        <%= image_tag(i.variant(resize_to_limit: [200,200]).processed.service_url, class: 'img-thumbnail') %>
       <% end %>
-      %>
     </p>
   </div>
 </div>

@@ -71,3 +71,7 @@ gem "devise", "~> 4.6"
 gem "letter_opener", "~> 1.7"
 
 gem "bundler", "~> 1.17"
+
+gem "image_processing", "~> 1.7"
+
+gem "mini_magick", "~> 4.9"

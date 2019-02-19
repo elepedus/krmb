@@ -3,4 +3,13 @@ require_relative 'application'
 
 # Initialize the Rails application.
 Rails.application.initialize!
-Krmb::Application.default_url_options = Krmb::Application.config.action_mailer.default_url_options
+
+ActionMailer::Base.smtp_settings = {
+    :user_name =>  Rails.application.credentials.dig(:staging, :mail, :username),
+    :password => Rails.application.credentials.dig(:staging, :mail, :password),
+    :domain => 'lpds.uk',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+}

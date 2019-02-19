@@ -1,102 +1,93 @@
-<p id="notice"><%= notice %></p>
+<div class="row my-4">
+  <div class="col-md-7 d-flex justify-content-center justify-content-md-start">
+    <div>
+      <h1 class="text-center text-md-left"><%= @vehicle.name %></h1>
+      <p class="lead text-center text-md-left my-0"><%= "#{@vehicle.year} #{@vehicle.make} #{@vehicle.model} #{@vehicle.doors}-door #{@vehicle.body_type}" %></p>
+      <p class="text-muted text-center text-md-left"><%= "#{@vehicle.engine_size} #{@vehicle.fuel_type} #{@vehicle.gearbox}" %></p>
+    </div>
+  </div>
+  <div class="col-md-5 d-flex justify-content-center justify-content-md-end align-items-top">
+    <div>
+      <span class="registration-ui"><%= @vehicle.registration %></span>
+    </div>
+  </div>
+</div>
+<ul class="nav nav-tabs" id="navTabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="true">Details</a>
+  </li>
+  <li class="nav-item">
+    <a href="#legal" class="nav-link" id="legal-tab" data-toggle="tab" role="tab" aria-controls="legal" aria-selected="false">Legal</a>
+  </li>
+  <li class="nav-item">
+    <a href="#notes" class="nav-link" id="notes-tab" data-toggle="tab" role="tab" aria-controls="notes" aria-selected="false">Notes</a>
+  </li>
+  <li class="nav-item">
+    <a href="#documents" class="nav-link" id="documents-tab" data-toggle="tab" role="tab" aria-controls="documents" aria-selected="false">Documents</a>
+  </li>
+  <li class="nav-item">
+    <a href="#photos" class="nav-link" id="photos-tab" data-toggle="tab" role="tab" aria-controls="photos" aria-selected="false">Photos</a>
+  </li>
+</ul>
+<div class="tab-content" id="navTabsContent">
+  <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="#details-tab">
+    <p>
+      <strong>Trim:</strong>
+      <%= @vehicle.trim %>
+    </p>
+    <p>
+      <strong>Colour:</strong>
+      <%= @vehicle.colour %>
+    </p>
+    <p>
+      <strong>Mileage:</strong>
+      <%= @vehicle.mileage %>
+    </p>
+    <p>
+      <strong>Fuel Consumption:</strong>
+      <%= @vehicle.fuel_consumption %>
+    </p>
+  </div>
+  <div class="tab-pane fade" id="legal" role="tabpanel" aria-labelledby="#legal-tab">
+    <p>
+      <strong>Mot expires:</strong>
+      <%= @vehicle.mot_expires %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @vehicle.name %>
-</p>
+    <p>
+      <strong>Insurance expires:</strong>
+      <%= @vehicle.insurance_expires %>
+    </p>
+  </div>
+  <div class="tab-pane fade" id="notes" role="tabpanel" aria-labelledby="#notes-tab">
+    <p>
+      <strong>Notes:</strong>
+      <%= @vehicle.notes %>
+    </p>
+  </div>
+  <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="#documents-tab">
+    <p>
+      <strong>Documents:</strong>
+      <% @vehicle.documents.each do |d| %>
+        <%= link_to('file', url_for(d)) %>
+      <% end %>
+    </p>
+  </div>
+  <div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="#photos-tab">
+    <p>
+      <strong>Images:</strong>
+      <% @vehicle.images.each do |i| %>
+        <%= image_tag (i), class: 'img-thumbnail' %>
+      <% end %>
+      %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Registration:</strong>
-  <%= @vehicle.registration %>
-</p>
 
-<p>
-  <strong>Make:</strong>
-  <%= @vehicle.make %>
-</p>
 
-<p>
-  <strong>Model:</strong>
-  <%= @vehicle.model %>
-</p>
 
-<p>
-  <strong>Trim:</strong>
-  <%= @vehicle.trim %>
-</p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @vehicle.year %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @vehicle.notes %>
-</p>
-
-<p>
-  <strong>Documents:</strong>
-  <% @vehicle.documents.each do |d| %>
-    <%= link_to('file' ,url_for(d)) %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Mileage:</strong>
-  <%= @vehicle.mileage %>
-</p>
-
-<p>
-  <strong>Mot expires:</strong>
-  <%= @vehicle.mot_expires %>
-</p>
-
-<p>
-  <strong>Insurance expires:</strong>
-  <%= @vehicle.insurance_expires %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @vehicle.user_id %>
-</p>
-
-<p>
-  <strong>Images:</strong>
-  <% @vehicle.images.each do |i| %>
-    <%= image_tag (i) %>
-  <% end %>
-  %>
-</p>
-<p>
-  <strong>Fuel Type:</strong>
-  <%= @vehicle.fuel_type %>
-</p>
-<p>
-  <strong>Body Type:</strong>
-  <%= @vehicle.body_type %>
-</p>
-<p>
-  <strong>Gearbox:</strong>
-  <%= @vehicle.gearbox %>
-</p>
-<p>
-  <strong>Doors:</strong>
-  <%= @vehicle.doors %>
-</p>
-<p>
-  <strong>Colour:</strong>
-  <%= @vehicle.colour %>
-</p>
-<p>
-  <strong>Fuel Consumption:</strong>
-  <%= @vehicle.fuel_consumption %>
-</p>
-<p>
-  <strong>Engine Size:</strong>
-  <%= @vehicle.engine_size %>
-</p>
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
 <%= link_to 'Back', vehicles_path %>

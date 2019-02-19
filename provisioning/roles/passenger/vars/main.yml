@@ -1,0 +1,10 @@
+passenger_apt_packages:
+  trusty:
+  - nginx-extras
+  - passenger
+  xenial:
+  - nginx-extras
+  - passenger
+  bionic:
+  - nginx-extras
+  - libnginx-mod-http-passenger

@@ -1,0 +1,15 @@
+# Documentation: https://roots.io/trellis/docs/remote-server-setup/
+# `rails_apps` options: https://roots.io/trellis/docs/rails-sites
+# Define accompanying passwords/secrets in group_vars/staging/vault.yml
+
+rails_apps:
+  krmb:
+    site_hosts:
+      - canonical: krmb.lpds.uk
+        # redirects:
+        #   - otherdomain.com
+    ssl:
+      enabled: true
+      provider: letsencrypt
+    cache:
+      enabled: false

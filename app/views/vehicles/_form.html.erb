@@ -1,0 +1,147 @@
+<%= form_with(model: vehicle, local: true) do |form| %>
+  <% if vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+
+      <ul>
+        <% vehicle.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :name, class: 'sr-only' %>
+        <%= form.text_field :name, class: 'form-control', placeholder: 'Name' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :registration, class: 'sr-only' %>
+        <%= form.text_field :registration, class: 'form-control', placeholder: 'Registration' %>
+      </div>
+    </div>
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <%= form.label :year, class: 'sr-only' %>
+        <%= form.number_field :year, class: 'form-control', placeholder: 'Year' %>
+      </div>
+    </div>
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <%= form.label :mileage, class: 'sr-only' %>
+        <%= form.number_field :mileage, class: 'form-control', placeholder: 'Mileage' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :make, class: 'sr-only' %>
+        <%= form.text_field :make, class: 'form-control', placeholder: 'Make' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :model, class: 'sr-only' %>
+        <%= form.text_field :model, class: 'form-control', placeholder: 'Model' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :trim, class: 'sr-only' %>
+        <%= form.text_field :trim, class: 'form-control', placeholder: 'Trim' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :colour, class: 'sr-only' %>
+        <%= form.text_field :colour, class: 'form-control', placeholder: 'Colour' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :doors, class: 'sr-only' %>
+        <%= form.number_field :doors, class: 'form-control', placeholder: 'Doors' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :body_type, class: 'sr-only' %>
+        <%= form.select(:body_type, Vehicle.body_types, {prompt: 'Body Type'}, {class: 'custom-select', required: true }) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="form-group">
+        <%= form.label :fuel_consumption, 'MPG', class: 'sr-only' %>
+        <%= form.number_field :fuel_consumption, class: 'form-control', placeholder: 'MPG' %>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <%= form.label :engine_size, class: 'sr-only' %>
+        <%= form.number_field :engine_size, class: 'form-control', placeholder: 'Engine Size' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :fuel_type, class: 'sr-only' %>
+        <%= form.select(:fuel_type, Vehicle.fuel_types, {prompt: 'Fuel Type'}, {class: 'custom-select', required: true }) %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :gearbox, class: 'sr-only' %>
+        <%= form.select(:gearbox, Vehicle.gearboxes, {prompt: 'Gearbox'}, {class: 'custom-select', required: true }) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :mot_expires, 'MOT expires' %>
+        <div class="input-group">
+          <%= form.date_select :mot_expires, {placeholder: 'MOT Expiry Date'}, class: 'custom-select' %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :insurance_expires %>
+        <div class="input-group">
+          <%= form.date_select :insurance_expires, {placeholder: 'Insurance Expiry Date'}, class: 'custom-select' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group d-none d-md-block">
+    <%= form.label :notes %>
+    <%= form.rich_text_area :notes, class: 'form-control', placeholder: 'Notes' %>
+  </div>
+
+  <div class="form-group">
+    <div class="custom-file">
+      <%= form.label :documents, class: 'custom-file-label' %>
+      <%= form.file_field :documents, multiple: true, direct_upload: true, class: 'custom-file-input', placeholder: 'Documents' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="custom-file">
+      <%= form.label :images, class: 'custom-file-label' %>
+      <%= form.file_field :images, multiple: true, direct_upload: true, class: 'custom-file-input', placeholder: 'Images' %>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center my-2">
+    <%= link_to 'Back', vehicles_path %>
+    <%= form.submit class: 'btn btn-outline-primary' %>
+  </div>
+<% end %>

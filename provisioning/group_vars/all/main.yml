@@ -28,6 +28,7 @@ apt_packages_custom:
   ruby-dev: "{{ apt_package_state }}"
   zlib1g-dev: "{{ apt_package_state }}"
   liblzma-dev: "{{ apt_package_state }}"
+  imagemagick: "{{ apt_package_state }}"
 
 nodejs_install_npm_user: "{{ web_group }}"
 nodejs_version: "10.x"

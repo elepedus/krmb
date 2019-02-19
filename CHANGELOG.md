@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Fixed
 - Populate sendgrid credentials
+- Add ImageMagick to provisioning scripts
 
 ## [1.0.1]
 ### Added

@@ -75,3 +75,5 @@ gem "bundler", "~> 1.17"
 gem "image_processing", "~> 1.7"
 
 gem "mini_magick", "~> 4.9"
+
+gem "ahoy_matey", "~> 2.2"

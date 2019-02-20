@@ -259,6 +259,178 @@ CREATE TABLE public.ar_internal_metadata (
 
 
 --
+-- Name: blazer_audits; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.blazer_audits (
+    id bigint NOT NULL,
+    user_id bigint,
+    query_id bigint,
+    statement text,
+    data_source character varying,
+    created_at timestamp without time zone
+);
+
+
+--
+-- Name: blazer_audits_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.blazer_audits_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blazer_audits_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.blazer_audits_id_seq OWNED BY public.blazer_audits.id;
+
+
+--
+-- Name: blazer_checks; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.blazer_checks (
+    id bigint NOT NULL,
+    creator_id bigint,
+    query_id bigint,
+    state character varying,
+    schedule character varying,
+    emails text,
+    slack_channels text,
+    check_type character varying,
+    message text,
+    last_run_at timestamp without time zone,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: blazer_checks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.blazer_checks_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blazer_checks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.blazer_checks_id_seq OWNED BY public.blazer_checks.id;
+
+
+--
+-- Name: blazer_dashboard_queries; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.blazer_dashboard_queries (
+    id bigint NOT NULL,
+    dashboard_id bigint,
+    query_id bigint,
+    "position" integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: blazer_dashboard_queries_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.blazer_dashboard_queries_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blazer_dashboard_queries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.blazer_dashboard_queries_id_seq OWNED BY public.blazer_dashboard_queries.id;
+
+
+--
+-- Name: blazer_dashboards; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.blazer_dashboards (
+    id bigint NOT NULL,
+    creator_id bigint,
+    name text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: blazer_dashboards_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.blazer_dashboards_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blazer_dashboards_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.blazer_dashboards_id_seq OWNED BY public.blazer_dashboards.id;
+
+
+--
+-- Name: blazer_queries; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.blazer_queries (
+    id bigint NOT NULL,
+    creator_id bigint,
+    name character varying,
+    description text,
+    statement text,
+    data_source character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: blazer_queries_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.blazer_queries_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blazer_queries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.blazer_queries_id_seq OWNED BY public.blazer_queries.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -291,7 +463,8 @@ CREATE TABLE public.users (
     unlock_token character varying,
     locked_at timestamp without time zone,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    admin boolean
 );
 
 
@@ -399,6 +572,41 @@ ALTER TABLE ONLY public.ahoy_visits ALTER COLUMN id SET DEFAULT nextval('public.
 
 
 --
+-- Name: blazer_audits id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.blazer_audits ALTER COLUMN id SET DEFAULT nextval('public.blazer_audits_id_seq'::regclass);
+
+
+--
+-- Name: blazer_checks id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.blazer_checks ALTER COLUMN id SET DEFAULT nextval('public.blazer_checks_id_seq'::regclass);
+
+
+--
+-- Name: blazer_dashboard_queries id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.blazer_dashboard_queries ALTER COLUMN id SET DEFAULT nextval('public.blazer_dashboard_queries_id_seq'::regclass);
+
+
+--
+-- Name: blazer_dashboards id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.blazer_dashboards ALTER COLUMN id SET DEFAULT nextval('public.blazer_dashboards_id_seq'::regclass);
+
+
+--
+-- Name: blazer_queries id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.blazer_queries ALTER COLUMN id SET DEFAULT nextval('public.blazer_queries_id_seq'::regclass);
+
+
+--
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -458,6 +666,46 @@ ALTER TABLE ONLY public.ahoy_visits
 
 ALTER TABLE ONLY public.ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: blazer_audits blazer_audits_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.blazer_audits
+    ADD CONSTRAINT blazer_audits_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: blazer_checks blazer_checks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.blazer_checks
+    ADD CONSTRAINT blazer_checks_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: blazer_dashboard_queries blazer_dashboard_queries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.blazer_dashboard_queries
+    ADD CONSTRAINT blazer_dashboard_queries_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: blazer_dashboards blazer_dashboards_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.blazer_dashboards
+    ADD CONSTRAINT blazer_dashboards_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: blazer_queries blazer_queries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.blazer_queries
+    ADD CONSTRAINT blazer_queries_pkey PRIMARY KEY (id);
 
 
 --
@@ -555,6 +803,62 @@ CREATE UNIQUE INDEX index_ahoy_visits_on_visit_token ON public.ahoy_visits USING
 
 
 --
+-- Name: index_blazer_audits_on_query_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_blazer_audits_on_query_id ON public.blazer_audits USING btree (query_id);
+
+
+--
+-- Name: index_blazer_audits_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_blazer_audits_on_user_id ON public.blazer_audits USING btree (user_id);
+
+
+--
+-- Name: index_blazer_checks_on_creator_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_blazer_checks_on_creator_id ON public.blazer_checks USING btree (creator_id);
+
+
+--
+-- Name: index_blazer_checks_on_query_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_blazer_checks_on_query_id ON public.blazer_checks USING btree (query_id);
+
+
+--
+-- Name: index_blazer_dashboard_queries_on_dashboard_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_blazer_dashboard_queries_on_dashboard_id ON public.blazer_dashboard_queries USING btree (dashboard_id);
+
+
+--
+-- Name: index_blazer_dashboard_queries_on_query_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_blazer_dashboard_queries_on_query_id ON public.blazer_dashboard_queries USING btree (query_id);
+
+
+--
+-- Name: index_blazer_dashboards_on_creator_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_blazer_dashboards_on_creator_id ON public.blazer_dashboards USING btree (creator_id);
+
+
+--
+-- Name: index_blazer_queries_on_creator_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_blazer_queries_on_creator_id ON public.blazer_queries USING btree (creator_id);
+
+
+--
 -- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -637,6 +941,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190216204530'),
 ('20190217130528'),
 ('20190218171705'),
-('20190219082435');
+('20190219082435'),
+('20190220064655'),
+('20190220065042');
 
 

@@ -13,5 +13,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/krmb_test</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="postgres@krmb.lpds.uk" uuid="9d806463-58a0-4e7c-9603-105193efe7ef">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/krmb_staging</jdbc-url>
+    </data-source>
   </component>
 </project>

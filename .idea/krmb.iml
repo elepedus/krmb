@@ -68,6 +68,7 @@
     <orderEntry type="library" scope="PROVIDED" name="docile (v1.3.1, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="errbase (v0.1.1, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.8.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="factory_bot (v5.0.1, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="factory_bot_rails (v5.0.1, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faker (v1.9.3, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
@@ -145,6 +146,7 @@
     <orderEntry type="library" scope="PROVIDED" name="turbolinks (v5.2.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turbolinks-source (v5.2.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.5, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="uglifier (v4.1.20, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="user_agent_parser (v2.5.1, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.8, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v3.7.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />

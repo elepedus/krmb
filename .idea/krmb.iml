@@ -43,6 +43,7 @@
     <orderEntry type="library" scope="PROVIDED" name="archive-zip (v0.11.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.12, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.5.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="blazer (v2.0.1, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.4.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="browser (v2.5.3, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
@@ -53,6 +54,7 @@
     <orderEntry type="library" scope="PROVIDED" name="capistrano-rails (v1.4.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-rbenv (v2.1.4, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v3.13.2, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="chartkick (v3.0.2, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="childprocess (v0.9.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="chromedriver-helper (v2.1.0, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.4, RVM: ruby-2.6.1 [krmb]) [gem]" level="application" />

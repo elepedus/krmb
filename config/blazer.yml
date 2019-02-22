@@ -3,7 +3,7 @@
 
 data_sources:
   main:
-    url: "postgres://<%= Rails.application.credentials.dig(:staging, :db, :username) %>:<%= Rails.application.credentials.dig(:staging, :db, :password) %>@localhost/<%= Rails.application.credentials.dig(:staging, :db, :name) %>"
+    url: "postgres://<%= Rails.application.credentials.dig(:staging, :db, :username) %>:<%= URI.escape(Rails.application.credentials.dig(:staging, :db, :password)) %>@localhost/<%= Rails.application.credentials.dig(:staging, :db, :name) %>"
 
     # statement timeout, in seconds
     # none by default

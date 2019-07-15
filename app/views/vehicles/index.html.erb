@@ -4,16 +4,16 @@
 </div>
 
 <div class="card-columns">
-  <% @vehicles.each do |vehicle| %>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><%= "#{vehicle.registration}" %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= "#{vehicle.make} #{vehicle.model}" %></h6>
-        <%= link_to 'Show', vehicle, class: 'card-link' %>
-        <%= link_to 'Edit', edit_vehicle_path(vehicle), class: 'card-link' %>
-        <%= link_to 'Destroy', vehicle, method: :delete, data: {confirm: 'Are you sure?'}, class: 'card-link' %>
+    <% @vehicles&.each do |vehicle| %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= "#{vehicle.registration}" %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= "#{vehicle.make} #{vehicle.model}" %></h6>
+          <%= link_to 'Show', vehicle, class: 'card-link' %>
+          <%= link_to 'Edit', edit_vehicle_path(vehicle), class: 'card-link' %>
+          <%= link_to 'Destroy', vehicle, method: :delete, data: {confirm: 'Are you sure?'}, class: 'card-link' %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end%>
+  </div>
 

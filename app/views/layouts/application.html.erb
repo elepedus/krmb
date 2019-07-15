@@ -39,6 +39,9 @@
           <%= link_to('Dashboard', blazer.root_path, class:'nav-link') %>
         </li>
       <% end %>
+      <li class="nav-item">
+        <%= link_to('My Vehicles', vehicles_path, class: 'nav-link') %>
+      </li>
     </ul>
     <ul class="navbar-nav">
       <% if user_signed_in? %>

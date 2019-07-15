@@ -1,5 +1,5 @@
 class VehiclesController < ApplicationController
-  include Concerns::SetCurrentHostForDiskService
+  include SetCurrentHostForDiskService
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 

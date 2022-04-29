@@ -78,6 +78,6 @@ gem "mini_magick", "~> 4.9"
 
 gem "ahoy_matey", "~> 2.2"
 
-gem "blazer", "~> 2.0"
+gem "blazer", "~> 2.6"
 
 gem "uglifier", "~> 4.1"
